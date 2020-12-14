@@ -8,7 +8,6 @@ class Api::V1::Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
-    binding.pry
     super
     # @user = User.create(sign_up_params)
   end
