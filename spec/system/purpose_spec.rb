@@ -105,7 +105,7 @@ RSpec.describe "sessions", type: :system, js: false do
     end
   end
 
-  # new ( = new purpose )
+  # new, create ( = new purpose )
   describe "GET /api/v1/purpose/new" do
     before do
       login
@@ -155,30 +155,38 @@ RSpec.describe "sessions", type: :system, js: false do
     end
   end
 
-  # create
-  describe "POST /api/v1/purpose" do
-  end
-
-  # edit
-  describe "GET /api/v1/purpose/:id/edit" do
-  end
-
   # update
   describe "PATCH /api/v1/purpose/:id" do
-  end
+    # ログインして、@purposeのedit画面へ遷移
+    before do
+      login
+      click_link "Edit"
+    end
 
-  # destroy
-  describe "DELETE /api/v1/purpose/:id" do
-  end
+    context "値を変更する場合" do
+      before { fill_in "Title", with: "test" }
 
-  # sample
-  it "ログアウト成功" do
-    visit new_user_session_path
-    fill_in "Email", with: @user.email
-    fill_in "Password", with: @user.password
+      it "画面の遷移が成功する" do
+        click_button "更新"
+        expect(page).to have_current_path api_v1_purpose_index_path
+      end
 
-    click_button "Log in"
-    visit logout_path
-    expect(page).to have_current_path new_user_registration_path, ignore_query: true
+      it "変更に成功する" do
+        click_button "更新"
+        expect(Purpose.find(@purpose.id).title).to eq "test"
+      end
+    end
+
+    context "値を変更しない場合" do
+      it "画面の遷移が成功する" do
+        click_button "更新"
+        expect(page).to have_current_path api_v1_purpose_index_path
+      end
+
+      it "変更に成功する" do
+        click_button "更新"
+        expect(Purpose.first.title).to eq @purpose.title
+      end
+    end
   end
 end
