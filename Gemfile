@@ -34,6 +34,7 @@ gem "devise"
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "capybara"
   gem "factory_bot_rails"
   gem "faker"
   gem "pry-byebug"
@@ -42,6 +43,7 @@ group :development, :test do
   gem "rspec-rails"
   gem "rubocop-rails"
   gem "rubocop-rspec"
+  gem "selenium-webdriver"
 end
 
 group :development do

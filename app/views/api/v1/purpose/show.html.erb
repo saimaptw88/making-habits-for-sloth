@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<tr>
+  <td><%= @purpose.title %></td>
+  <td><%= @purpose.term %></td>
+  <td><%= @purpose.time %></td>
+</tr>
+
+<%= link_to 'Edit', edit_api_v1_purpose_path(@purpose) %> |
+<%= link_to 'Back', api_v1_purpose_index_path %>

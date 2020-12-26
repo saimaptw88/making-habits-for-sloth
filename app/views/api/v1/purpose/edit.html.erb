@@ -1,0 +1,17 @@
+<h1>Editing Purpose</h1>
+
+
+<%= form_with url: api_v1_purpose_path(@purpose), model: @purpose, local: true do |form| %>
+
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+  <%= form.label :term %>
+  <%= form.text_field :term %>
+  <%= form.label :time %>
+  <%= form.text_field :time %>
+  <%= form.submit "更新" %>
+
+<% end %>
+
+<%= link_to 'Show', api_v1_purpose_path(@purpose) %> |
+<%= link_to 'Back', api_v1_purpose_index_path %>
