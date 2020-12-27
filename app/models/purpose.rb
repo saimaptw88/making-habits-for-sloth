@@ -3,8 +3,8 @@
 # Table name: purposes
 #
 #  id         :bigint           not null, primary key
-#  term       :integer          default(5702400), not null
-#  time       :integer          default(1 hour), not null
+#  term       :integer          default(66), not null
+#  time       :integer          default(1), not null
 #  title      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -21,8 +21,8 @@
 class Purpose < ApplicationRecord
   belongs_to :user
 
-  attribute :term, :integer, default: 66.days
-  attribute :time, default: 1.hours
+  attribute :term, :integer, default: 66
+  attribute :time, :integer, default: 1
 
   validates :title, presence: true
   validates :term, presence: true
