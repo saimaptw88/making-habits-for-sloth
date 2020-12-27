@@ -64,6 +64,7 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   config.include FactoryBot::Syntax::Methods
 
+  # headless化のための記述
   config.before do |example|
     # `describe 〜, type: :system do` のspecを対象にする
     if example.metadata[:type] == :system
