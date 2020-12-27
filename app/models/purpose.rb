@@ -24,7 +24,6 @@ class Purpose < ApplicationRecord
   attribute :term, :integer, default: 66
   attribute :time, :integer, default: 1
 
-
   validates :title, presence: true
   validates :term, presence: true
   validates :time, presence: true

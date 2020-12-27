@@ -6,6 +6,6 @@ class CreatePurposes < ActiveRecord::Migration[6.0]
       t.integer :time, null: false, default: 1
 
       t.timestamps
-  end
+    end
   end
 end
