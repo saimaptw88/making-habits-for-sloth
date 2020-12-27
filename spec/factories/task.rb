@@ -1,9 +1,8 @@
 FactoryBot.define do
-  factory :purpose do
+  factory :task do
     title { Faker::Internet.email }
-    term { 66 }
-    time { 1 }
 
     user
+    purpose
   end
 end
