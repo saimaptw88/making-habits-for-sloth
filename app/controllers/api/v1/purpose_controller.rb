@@ -2,7 +2,7 @@ class Api::V1::PurposeController < Api::V1::BaseController
   before_action :set_purpose, only: [:show, :edit, :update, :destroy]
 
   def index
-    @purposes = current_user.purposes.all
+    @purposes = current_user.purposes.all.order(updated_at: :desc)
   end
 
   def show
