@@ -63,4 +63,11 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
   config.include FactoryBot::Syntax::Methods
+
+  config.before do |example|
+    # `describe 〜, type: :system do` のspecを対象にする
+    if example.metadata[:type] == :system
+      driven_by :selenium_chrome_headless, screen_size: [1600, 1600]
+    end
+  end
 end
