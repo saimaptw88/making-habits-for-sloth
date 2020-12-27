@@ -1,5 +1,5 @@
 name: Lint & Test
-on: [push]
+on: [push ,pull_request]
 jobs:
   execute:
     runs-on: ubuntu-latest
@@ -20,6 +20,7 @@ jobs:
           ruby-version: 2.7.2
       - name: install yarn
         run: brew install yarn
+      - name: yarn
         run: yarn install
       - name: webpacker install
         run: rails webpacker:install
