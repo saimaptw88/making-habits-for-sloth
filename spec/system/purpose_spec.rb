@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "sessions", type: :system, js: false do
+RSpec.describe "purpose", type: :system, js: false do
   before do
     @user = create(:user)
     @purpose = create(:purpose, user_id: @user.id)
@@ -18,14 +18,14 @@ RSpec.describe "sessions", type: :system, js: false do
   describe "GET /api/v1/purpose" do
     it "ログイン成功" do
       login
-      expect(page).to have_current_path api_v1_purpose_index_path, ignore_query: true
+      expect(page).to have_current_path api_v1_purpose_index_path
     end
 
     context "new" do
       it "画面がnewに遷移する" do
         login
         click_link "New purpose"
-        expect(page).to have_current_path new_api_v1_purpose_path, ignore_query: true
+        expect(page).to have_current_path new_api_v1_purpose_path
       end
     end
 
@@ -33,7 +33,7 @@ RSpec.describe "sessions", type: :system, js: false do
       it "画面がshowに遷移する" do
         login
         click_link @purpose.title
-        expect(page).to have_current_path "/api/v1/purpose/#{@purpose.id}", ignore_query: true
+        expect(page).to have_current_path "/api/v1/purpose/#{@purpose.id}"
       end
     end
 
@@ -41,7 +41,7 @@ RSpec.describe "sessions", type: :system, js: false do
       it "画面がeditに遷移する" do
         login
         click_link "Edit"
-        expect(page).to have_current_path "/api/v1/purpose/#{@purpose.id}/edit", ignore_query: true
+        expect(page).to have_current_path "/api/v1/purpose/#{@purpose.id}/edit"
       end
     end
 
@@ -93,14 +93,14 @@ RSpec.describe "sessions", type: :system, js: false do
     context "editをクリックした場合" do
       it "editへの移動" do
         click_link "Edit"
-        expect(page).to have_current_path "/api/v1/purpose/#{@purpose.id}/edit", ignore_query: true
+        expect(page).to have_current_path "/api/v1/purpose/#{@purpose.id}/edit"
       end
     end
 
     context "Backをクリックした場合" do
       it "backへの移動" do
         click_link "Back"
-        expect(page).to have_current_path api_v1_purpose_index_path, ignore_query: true
+        expect(page).to have_current_path api_v1_purpose_index_path
       end
     end
   end
@@ -120,7 +120,7 @@ RSpec.describe "sessions", type: :system, js: false do
 
       it "遷移先が正しい" do
         make
-        expect(page).to have_current_path api_v1_purpose_index_path, ignore_query: true
+        expect(page).to have_current_path api_v1_purpose_index_path
       end
 
       it "作成に成功後の表示分が正しい" do
@@ -134,14 +134,14 @@ RSpec.describe "sessions", type: :system, js: false do
 
       it "backに成功する" do
         back
-        expect(page).to have_current_path api_v1_purpose_index_path, ignore_query: true
+        expect(page).to have_current_path api_v1_purpose_index_path
       end
     end
 
     context "titleが入力されていない場合" do
       it "ページ遷移できない" do
         make
-        expect(page).to have_current_path api_v1_purpose_index_path, ignore_query: true
+        expect(page).to have_current_path api_v1_purpose_index_path
       end
 
       it "作成されない" do
@@ -150,7 +150,7 @@ RSpec.describe "sessions", type: :system, js: false do
 
       it "backに成功する" do
         back
-        expect(page).to have_current_path api_v1_purpose_index_path, ignore_query: true
+        expect(page).to have_current_path api_v1_purpose_index_path
       end
     end
   end
