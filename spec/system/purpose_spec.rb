@@ -8,6 +8,7 @@ RSpec.describe "purpose", type: :system, js: false do
 
   let(:login) do
     visit new_user_session_path
+    fill_in "Name", with: @user.name
     fill_in "Email", with: @user.email
     fill_in "Password", with: @user.password
 
@@ -83,6 +84,7 @@ RSpec.describe "purpose", type: :system, js: false do
     end
   end
 
+  # -------------------------以下要修正-----------------------------------------------
   # show
   describe "GET /api/v1/purpose/:id" do
     before do
