@@ -4,6 +4,7 @@ RSpec.describe "GET /users/sign_up", type: :system do
   it "ユーザー登録に成功する" do
     visit new_user_registration_path
 
+    fill_in "Name", with: "test"
     fill_in "Email", with: "test@example.com"
     fill_in "Password", with: "password"
     fill_in "Password confirmation", with: "password"
