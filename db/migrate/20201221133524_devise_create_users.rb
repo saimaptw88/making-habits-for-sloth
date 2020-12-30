@@ -41,6 +41,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
 
+    User.create(name: "斎藤 正大", email: "tt.enjoy.saima@gmail.com", password: "123456")
     3.times do |i|
       User.create(name: i + 1, email: "#{i + 1}@sample.com", password: "123456")
     end

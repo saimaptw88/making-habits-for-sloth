@@ -1,7 +1,6 @@
 class NotificationMailer < ApplicationMailer
   def send_message(notice)
     @name = notice.name
-
     user = User.find(notice.user_id)
     @titles = user.purposes.all
 

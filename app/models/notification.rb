@@ -23,4 +23,5 @@
 class Notification < ApplicationRecord
   belongs_to :purpose
   belongs_to :user
+
 end
