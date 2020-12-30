@@ -20,7 +20,7 @@
 #
 class Purpose < ApplicationRecord
   belongs_to :user
-  has_one :task, dependent: :destroy
+  has_one :notification, dependent: :destroy
 
   attribute :term, :integer, default: 66
   attribute :time, :integer, default: 1
