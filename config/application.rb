@@ -37,12 +37,12 @@ module MakingHabitsForSloth
       g.javascripts false
       # g.stylesheets false
       g.helper false
-      g.test_framework false #:rspec,
-      #  view_specs: false,
-      #  helper_specs: false,
-      #  controller_specs: false,
-      #  routing_specs: false,
-      #  request_specs: false
+      g.test_framework :rspec,
+                       view_specs: false,
+                       helper_specs: false,
+                       controller_specs: false,
+                       routing_specs: false,
+                       request_specs: true
     end
 
     config.middleware.use ActionDispatch::Flash
